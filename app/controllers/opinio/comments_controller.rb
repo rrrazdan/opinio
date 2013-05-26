@@ -21,7 +21,7 @@ class Opinio::CommentsController < ApplicationController
       format.js
       format.html do
         set_flash(flash_area, message)
-        redirect_to(opinio_after_create_path(resource))
+        redirect_to(request.referer)
       end
     end
   end
