@@ -9,6 +9,7 @@ class Opinio::CommentsController < ApplicationController
   def create
     @comment = resource.comments.build(params[:comment])
     @comment.owner = send(Opinio.current_user_method)
+    @comment.comment_type = params[:comment_type]
     if @comment.save
       flash_area = :notice
       message = t('opinio.messages.comment_sent')
